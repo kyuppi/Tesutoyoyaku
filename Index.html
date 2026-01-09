@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2026 by anonymous (http://jsbin.com/vozekoteni/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ご予約 | 月色クレープ（Tsukiiro Crepe）</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d4a373; /* 上品なキャメル。クレープの焼き色イメージ */
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #eeeeee;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .info-box {
+            background-color: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #bc8a5f;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>月色クレープ</h1>
+            <p>Tsukiiro Crepe - 自由が丘</p>
+        </header>
+
+        <div class="info-box">
+            📍 自由が丘駅から徒歩3分<br>
+            🥡 本フォームは店頭受け取り（テイクアウト）専用です。
+        </div>
+
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="name">お名前（フルネーム）</label>
+                <input type="text" id="name" name="name" placeholder="例：月色 太郎" required>
+            </div>
+
+            <div class="form-group" style="display: flex; gap: 10px;">
+                <div style="flex: 2;">
+                    <label for="date">ご来店日</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div style="flex: 1;">
+                    <label for="time">お時間</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="menu">メインメニュー</label>
+                <select id="menu" name="menu" required>
+                    <option value="" disabled selected>選択してください</option>
+                    <optgroup label="スイーツ系">
+                        <option value="choco-banana">チョコバナナ生クリーム (¥650)</option>
+                        <option value="strawberry">完熟いちごチョコ (¥720)</option>
+                        <option value="sugar-butter">シュガーバター (¥500)</option>
+                    </optgroup>
+                    <optgroup label="おかず系">
+                        <option value="ham-egg">とろ〜りチーズのハムエッグ (¥680)</option>
+                        <option value="salmon-avocado">スモークサーモンとアボカド (¥750)</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>トッピング（任意）</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
+                    <label style="font-weight: normal;"><input type="checkbox" name="topping" value="almond"> アーモンド (+¥100)</label>
+                    <label style="font-weight: normal;"><input type="checkbox" name="topping" value="ice"> アイス (+¥100)</label>
+                    <label style="font-weight: normal;"><input type="checkbox" name="topping" value="whip"> ホイップ増量 (+¥100)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">ご要望・メッセージ</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="アレルギーのご相談や、複数注文の詳細などはこちらへ"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">予約内容を確認する</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2026 Tsukiiro Crepe - Quality Takeout Only
+    </footer>
+
+</body>
+</html>
